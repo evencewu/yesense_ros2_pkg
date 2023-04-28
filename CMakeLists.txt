@@ -3,11 +3,14 @@ project(yesense_imu)
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(serial REQUIRED)
+
 
 include_directories(include)
 
 add_executable(yesense_imu_node src/yesense_imu_node.cpp)
-ament_target_dependencies(yesense_imu_node rclcpp)
+ament_target_dependencies(yesense_imu_node rclcpp sensor_msgs serial)
 
 install(
   DIRECTORY include/
